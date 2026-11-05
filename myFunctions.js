@@ -16,14 +16,24 @@
     }
 
     function parseDate(value) {
-        var match = /^(\d{2})-(\d{2})-(\d{4})$/.exec(value);
+        var match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(value) ||
+            /^(\d{2})-(\d{2})-(\d{4})$/.exec(value);
         if (!match) {
             return null;
         }
 
-        var day = Number(match[1]);
-        var month = Number(match[2]);
-        var year = Number(match[3]);
+        var year;
+        var month;
+        var day;
+        if (match[1].length === 4) {
+            year = Number(match[1]);
+            month = Number(match[2]);
+            day = Number(match[3]);
+        } else {
+            day = Number(match[1]);
+            month = Number(match[2]);
+            year = Number(match[3]);
+        }
         var date = new Date(year, month - 1, day);
 
         if (date.getFullYear() !== year || date.getMonth() !== month - 1 || date.getDate() !== day) {
