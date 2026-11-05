@@ -23,6 +23,16 @@
 
         $(".select-car").on("change", function () {
             $(this).closest("tr").toggleClass("selected-car", this.checked);
+            $("#continue-booking").prop("disabled", $(".select-car:checked").length === 0);
+        });
+
+        $("#continue-booking").on("click", function () {
+            if ($(".select-car:checked").length === 0) {
+                return;
+            }
+
+            $(".pageform").prop("hidden", false).hide().slideDown(300);
+            $(".pageform")[0].scrollIntoView({ behavior: "smooth", block: "start" });
         });
 
         $(".pageform form").on("submit", function (event) {

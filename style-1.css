@@ -376,6 +376,20 @@ h2 {
     background-color: rgb(224, 248, 242);
 }
 
+.continue-container {
+    margin: 20px auto;
+    text-align: center;
+}
+
+.continue-btn {
+    width: 150px;
+}
+
+.continue-btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.55;
+}
+
 /* تنسيق حاوية سطر التفاصل */
 .details-content {
     display: flex;
