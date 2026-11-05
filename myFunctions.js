@@ -42,8 +42,8 @@
                 return;
             }
 
-            if (!/^(0[1-9]|1[0-4])\d{4,}$/.test(nationalNumber) || !/^\d{7,15}$/.test(mobileNumber)) {
-                showMessage($form, "يرجى إدخال رقم وطني يبدأ برمز محافظة من 01 إلى 14، ورقم موبايل صحيح.", "error");
+            if (!/^(0[1-9]|1[0-4])\d{4,}$/.test(nationalNumber) || !/^09\d{8}$/.test(mobileNumber)) {
+                showMessage($form, "يرجى إدخال رقم وطني يبدأ برمز محافظة من 01 إلى 14، ورقم موبايل من 10 أرقام يبدأ بـ 09.", "error");
                 return;
             }
 
